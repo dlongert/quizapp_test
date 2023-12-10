@@ -29,4 +29,15 @@ class ReadQuizTest(unittest.TestCase):
         result = rq.get_available_courses()
         self.assertNotEquals(len(result), 0)
     
+    def test_save_score(self):
+        mock_open = mock.mock_open(read_data=READ_DATA)
+        with mock.patch('builtins.open', mock_open):
+            result = rq.save_score(student, COURSE_CODE, 10)
+        self.assertEquals(result, True)
+        
+    def test_get_percentage(self):
+        mock_open = mock.mock_open(read_data=READ_DATA)
+        with mock.patch('builtins.open', mock_open):
+            result = rq.get_percentage(student)
+        self.assertEquals(result, 0)
 unittest.main(argv=[''], verbosity=2, exit=False)
