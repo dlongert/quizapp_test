@@ -13,6 +13,10 @@ READ_DATA = json.dumps([{"question":"Question 1","options":["A. A","B. B","C. C"
 
 
 class ReadQuizTest(unittest.TestCase):    
+     
+    @classmethod
+    def setUpClass(cls):
+        print("In setUpClass()")      
         
     def setUp(self):
         self.options = ['A. A', 'B. B', 'C. C', 'D. D', 'E. E']
@@ -47,4 +51,9 @@ class ReadQuizTest(unittest.TestCase):
         del self.options
         del self.quiz
         del self.problem
+        
+    @classmethod
+    def tearDownClass(cls):
+        print("In tearDownClass()")
+        
 unittest.main(argv=[''], verbosity=2, exit=False)
