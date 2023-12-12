@@ -29,6 +29,9 @@ class TakeQuizTest(unittest.TestCase):
         mocked_input.side_effect = ['Student A', 123]
         result = takequiz.student_handler()
         self.assertEquals(result.student_number, self.student.student_number)
+        self.assertEquals(result.student_name, self.student.student_name)
+        self.assertIsNotNone(result.student_number)
+        self.assertIsNotNone(result.student_name)
 
     @mock.patch('student.takequiz.input', create=True)
     @mock.patch('student.readquiz.read_quiz', return_value = quiz)
