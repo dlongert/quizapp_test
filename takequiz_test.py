@@ -1,5 +1,4 @@
 import unittest
-import json
 import mock
 
 from student import takequiz
@@ -14,6 +13,10 @@ problem = Problem("Question 1", options, 'A')
 quiz = Quiz(COURSE_CODE, [problem])
 
 class TakeQuizTest(unittest.TestCase):
+    
+    @classmethod
+    def setUpClass(cls):
+        print("In setUpClass()")
 
     def setUp(self):
         self.student = Student('Student A', 123)
@@ -40,6 +43,10 @@ class TakeQuizTest(unittest.TestCase):
         del self.options
         del self.quiz
         del self.problem
+        
+    @classmethod
+    def tearDownClass(cls):
+        print("In tearDownClass()")
         
 unittest.main(argv=[''], verbosity=2, exit=False)
 
