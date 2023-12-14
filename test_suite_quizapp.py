@@ -4,6 +4,7 @@ from readquiz_test import ReadQuizTest
 from takequiz_test import TakeQuizTest
 from createquiz_test import CreateQuizTest
 from checkstudentscore_test import CheckStudentScoreTest
+from main_test import MainTest
 
 def quizapp_test_suite():
     suite = unittest.TestSuite()
@@ -23,6 +24,9 @@ def quizapp_test_suite():
     suite.addTest(CheckStudentScoreTest("test_quiz_score_statistics"))
     suite.addTest(CheckStudentScoreTest("test_score_driver"))
     suite.addTest(CheckStudentScoreTest("test_quiz_or_score"))
+    suite.addTest(MainTest("test_start"))
+    suite.addTest(MainTest("test_start_2"))
+    suite.addTest(MainTest("test_start_3"))
     runner = unittest.TextTestRunner()
     print(runner.run(suite))
 quizapp_test_suite()
